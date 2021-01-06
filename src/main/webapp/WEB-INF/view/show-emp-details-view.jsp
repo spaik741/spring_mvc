@@ -12,6 +12,6 @@
 </head>
 <body>
     <br>
-    <p>Your name: ${param.employeeName}</p>
+    <p>Your name: ${nameAttribute}</p>
 </body>
 </html>
