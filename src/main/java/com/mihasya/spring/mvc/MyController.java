@@ -2,6 +2,7 @@ package com.mihasya.spring.mvc;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
@@ -13,14 +14,16 @@ public class MyController {
     public String showFirstView(){
         return "my_first_view";
     }
+
     @RequestMapping("/askDetails")
-    public String askEmployeeDetails(){
+    public String askEmployeeDetails(Model model){
+        model.addAttribute("employee",new Employee());
         return "ask-emp-details-view";
     }
+
     @RequestMapping("/showDetails")
-    public String showEmployeeDetails(HttpServletRequest request, Model model){
-        String name = "Mr." + request.getParameter("employeeName");
-        model.addAttribute("nameAttribute", name);
+    public String showEmployeeDetails(@ModelAttribute("employee") Employee employee){
+        employee.setName("Mr. " + employee.getName());
         return "show-emp-details-view";
     }
 }
