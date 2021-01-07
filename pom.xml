@@ -21,7 +21,7 @@
   </properties>
 
   <dependencies>
-    <!-- spring -->
+    <!-- Spring -->
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
@@ -59,6 +59,12 @@
       <artifactId>servlet-api</artifactId>
       <version>2.5</version>
       <scope>provided</scope>
+    </dependency>
+    <!-- Hibernate -->
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-validator</artifactId>
+      <version>6.1.0.Final</version>
     </dependency>
   </dependencies>
 

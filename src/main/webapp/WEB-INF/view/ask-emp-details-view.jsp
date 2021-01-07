@@ -6,7 +6,7 @@
 </head>
 <body>
 <br>
-    <h2>Dear User, Please enter your details</h2>
+<h2>Dear User, Please enter your details</h2>
 
 <br>
 <!--
@@ -19,20 +19,26 @@
 <form:form action="showDetails" modelAttribute="employee">
 
     Name <form:input path="name"/>
-    <br>
+    <form:errors path="name"/>
+    <br><br>
     Surname <form:input path="surname"/>
-    <br>
+    <form:errors path="surname"/>
+    <br><br>
     Salary <form:input path="salary"/>
-    <br>
-    Department  <form:select path="department">
-                    <form:options items="${employee.departments}"/>
-                </form:select>
-    <br>
+    <form:errors path="salary"/>
+    <br><br>
+    Email <form:input path="email"/>
+    <form:errors path="email"/>
+    <br><br>
+    Department <form:select path="department">
+    <form:options items="${employee.departments}"/>
+</form:select>
+    <br><br>
     Select car brand <form:radiobuttons path="carBrand" items="${employee.carBrands}"/>
-    <br>
+    <br><br>
     Foreign Language(s)
     <form:checkboxes path="languages" items="${employee.languageList}"/>
-    <br>
+    <br><br>
     <input type="submit" value="OK">
 </form:form>
 

@@ -1,33 +1,41 @@
 package com.mihasya.spring.mvc;
 
+import com.mihasya.spring.mvc.validation.CheckEmail;
+
+import javax.validation.constraints.*;
 import java.util.HashMap;
 import java.util.Map;
 
 public class Employee {
-
-    private  String name;
-    private  String surname;
-    private  int salary;
-    private  String department;
+    @Size(min = 2, max = 100, message = "name min 2 and max 100 symbols")
+    private String name;
+    @NotBlank(message = "surname is required field")
+    private String surname;
+    @Min(value = 300, message = "min 300")
+    @Max(value = 1000, message = "max 1000")
+    private int salary;
+    private String department;
     private String carBrand;
-    private Map<String,String> departments;
-    private Map<String,String> carBrands;
-    private String [] languages;
-    private Map<String,String> languageList;
+    @CheckEmail
+    private String email;
+    private Map<String, String> departments;
+    private Map<String, String> carBrands;
+    private String[] languages;
+    private Map<String, String> languageList;
 
     public Employee() {
-        departments = new HashMap<String,String>();
-        departments.put("Information Technology","IT");
-        departments.put("Human Resources","HR");
-        departments.put("Sales","Sales");
+        departments = new HashMap<String, String>();
+        departments.put("Information Technology", "IT");
+        departments.put("Human Resources", "HR");
+        departments.put("Sales", "Sales");
         carBrands = new HashMap<>();
-        carBrands.put("Lada","Lada");
-        carBrands.put("KIA","KIA");
-        carBrands.put("Mercedes-Benz","MB");
+        carBrands.put("Lada", "Lada");
+        carBrands.put("KIA", "KIA");
+        carBrands.put("Mercedes-Benz", "MB");
         languageList = new HashMap<>();
-        languageList.put("English","EN");
-        languageList.put("Deutch","DE");
-        languageList.put("French","FR");
+        languageList.put("English", "EN");
+        languageList.put("Deutch", "DE");
+        languageList.put("French", "FR");
     }
 
     public String getName() {
@@ -100,6 +108,14 @@ public class Employee {
 
     public void setLanguageList(Map<String, String> languageList) {
         this.languageList = languageList;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     @Override
